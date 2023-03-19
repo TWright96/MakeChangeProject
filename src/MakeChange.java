@@ -34,25 +34,19 @@ public class MakeChange {
 
 			else if (tender > cost) {
 
-				System.out.println("This is enough to purchase this item.");
-				change = (int)((tender - cost) * 100);
-				
-				System.out.println("Your change is $" + (tender - cost) + ".");
-
-
+				System.out.println("This is enough to purchase this item. Your change is: ");
+				change = (int) (Math.round((tender - cost) * 100));
 				if (change / 2000 > 0) {
 					int twentys = (change / 2000);
 					change = change % 2000;
 					System.out.println("Twenties: " + twentys);
 				}
 
-
 				if (change / 1000 > 0) {
 					int tens = (change / 1000);
 					change = change % 1000;
 					System.out.println("Tens: " + tens);
 				}
-
 
 				if (change / 500 > 0) {
 					int fives = (change / 500);
@@ -67,41 +61,35 @@ public class MakeChange {
 				}
 
 				if (change / 25 > 0) {
-					
-					int quartersMath = (change /25);
+
+					int quartersMath = (change / 25);
 					change = change % 25;
 					System.out.println("Quarters: " + quartersMath);
 					// System.out.println("QuartersMath" + quartersMath);
 				}
 
 				if (change / 10 > 0) {
-					int dimesMath = ((change/ 10 ));
-                     change = change % 10;
-					
-					 System.out.println("DimeMath" + dimesMath);
+					int dimesMath = ((change / 10));
+					change = change % 10;
+
+					System.out.println("Dimes: " + dimesMath);
 				}
 
-				
-				if (change / 5 >0) {
+				if (change / 5 > 0) {
+
 					int nickles = (change / 5);
 					change = (change % 5);
 					System.out.println("Nickles: " + nickles);
-					 
+
 				}
-				
-				
-				if (change / 1 > 0) { 
+
+				if (change / 1 > 0) {
 					int pennies = (change / 1);
+
 					change = (change % 1);
-				System.out.println("Pennies: " + pennies);
-	
-}
-				
-				
-				
-			
-				
-				
+					System.out.println("Pennies: " + pennies);
+
+				}
 
 				String ask = " ";
 
@@ -116,14 +104,14 @@ public class MakeChange {
 					System.out.println("Thanks for shopping. \nGoodbye!");
 					break;
 
-			}
+				}
 
 			} else if (tender == cost) {
 				String ask = " ";
 				System.out.println("This is the exact amount to purchase this item.");
 				System.out.println("Would you like to purchase another item? :");
 				ask = sc.next();
-				
+
 				if (ask.equals("yes")) {
 
 					continue;
@@ -131,11 +119,10 @@ public class MakeChange {
 				if (ask.equals("no")) {
 					System.out.println("Thanks for shopping. \nGoodbye!");
 					break;
+				}
 			}
-		} 
-		sc.close();
-		
-	} while (cost >= 0);
+			sc.close();
+
+		} while (cost >= 0);
 	}
 }
-
